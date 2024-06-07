@@ -1,5 +1,5 @@
 ---
-
+const pageTitle = "Home Page"
 ---
 
 <html lang="en">
@@ -8,7 +8,14 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+
+		<style>
+            h1 {
+                color: orange;
+                font-size: 4rem;
+            }
+        </style>
 	</head>
 	<body>
 		<a href="/">Home</a>
@@ -16,7 +23,7 @@
 		<a href="/blog/">Blog</a>
 
 
-		<h1>Astro</h1>
+		<h1>{pageTitle}</h1>
 		<h1>My Astro Site</h1>
 
 		<p>now i have made some change and will use the git push</p>>
