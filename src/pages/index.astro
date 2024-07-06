@@ -1,33 +1,8 @@
 ---
-import "../styles/global.css"
-
-const pageTitle = "Home Page"
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Home Page 29/06";
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-
-		<style>
-            h1 {
-                color: orange;
-                font-size: 4rem;
-            }
-        </style>
-	</head>
-	<body>
-		<a href="/">Home</a>
-        <a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
-
-
-		<h1>{pageTitle}</h1>
-		<h1>My Astro Site</h1>
-
-		<p>now i have made some change and will use the git push</p>>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitl from index.astroe </h2>
+  <h5>is this part the injected slot??</h5>
+</BaseLayout>

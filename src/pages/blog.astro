@@ -1,7 +1,11 @@
 ---
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../layouts/BlogPost.astro';
 import '../styles/global.css';
 
-const pageTitle = "My Astro Learning Blog"
+const allPosts = await Astro.glob('./posts/*.md');
+const pageTitle = "Astro Blog 29/06";
 ---
 
 <html lang="en">
@@ -10,25 +14,26 @@ const pageTitle = "My Astro Learning Blog"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
+		
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+		
+		<BaseLayout pageTitle = {pageTitle}>
 
+			<h2>Astro Blog Page</h2>
 
-		<h1>{pageTitle}</h1>
-		<h2>Astro Blog Page</h1>
+			<p>This is where I will post about my journey learning Astro</p>
 
-		<p>This is where I will post about my journey learning Astro</p>
+			<ul>
+			
+				{allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
 
-        <ul>
-            <li><a href="/posts/post-1/">Post 1</a></li>
-            <li><a href="/posts/post-2/">Post 2</a></li>
-            <li><a href="/posts/post-3/">Post 3</a></li>
-        </ul>
+			</ul>
+			<p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
 
-        <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+		</BaseLayout>
+		<script>
+			import '../scripts/menu.js'
+		</script>
 	</body>
 </html>
